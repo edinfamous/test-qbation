@@ -1,0 +1,9 @@
+name = "test Module"
+description = "Module functions custom for test"
+core = 7.x
+package = inqbation
+;Dependencies
+dependencies[] = views
+dependencies[] = features
+dependencies[] = context
+
