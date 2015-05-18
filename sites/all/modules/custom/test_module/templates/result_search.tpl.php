@@ -9,13 +9,17 @@
 				<a href="#" class="list-group-item active">
 					<h4 class="list-group-item-heading glyphicon glyphicon-cutlery"> <?php print($value->name); ?></h4>
 					<p class="list-group-item-text"><span class="glyphicon glyphicon-plane"></span>  It is <?php print($value->location->distance); ?> meters away from you</p>
-					<span class="city glyphicon glyphicon-road"> <?php print($value->location->city);?></span>
+					<span class="city glyphicon glyphicon-road"> <?php print($value->location->city);?>
+						<a href="/item-search/<?php print($value->id);?>" class="list-group-item-text">See more</a>
+					</span>
 				</a>
 			<?php else : ?>
 				<a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading glyphicon glyphicon-cutlery"> <?php print($value->name); ?></h4>
+					<h4 class="list-group-item-heading glyphicon glyphicon-cutlery"> <?php if(!empty($value->name)? print($value->name) : print 'no name'); ?></h4>
 					<p class="list-group-item-text"><span class="glyphicon glyphicon-plane"></span>  It is <?php print($value->location->distance); ?> meters away from you</p>
-					<span class="city glyphicon glyphicon-road"> <?php print($value->location->city);?></span>
+					<span class="city glyphicon glyphicon-road"> <?php if(!empty($value->location->city)? print($value->location->city) : print 'no city');?>
+						<a href="/item-search/<?php print($value->id);?>" class="list-group-item-text">See more</a>
+					</span>
 				</a>
 			<?php endif; ?>
 		<?php } ?>
@@ -27,5 +31,7 @@
   <a href="#" class="list-group-item active">
     <h4 class="list-group-item-heading">Título del elemento de la lista</h4>
     <p class="list-group-item-text">...</p>
+    https://foursquare.com/oauth2/authenticate?client_id=PZYP3JUAPNMSRR2JKMDY4BTXWEITM3D2SZXXCAF0ZV5OTHUY&response_type=code&redirect_uri=https://www.foursquare.com
+    https://foursquare.com/oauth2/access_token?client_id=PZYP3JUAPNMSRR2JKMDY4BTXWEITM3D2SZXXCAF0ZV5OTHUY&client_secret=1JIJTPBNV3VTV0CCEE1UOIRDR0TP1SXWNRUERRDELHTMIRDQ&grant_type=authorization_code&redirect_uri=https://www.foursquare.com&code=CODE
   </a>
 </div>-->

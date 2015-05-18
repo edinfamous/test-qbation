@@ -1,6 +1,7 @@
 <?php 
 	define('CLIENT_ID_TEST', 'PZYP3JUAPNMSRR2JKMDY4BTXWEITM3D2SZXXCAF0ZV5OTHUY');
 	define('CLIENT_SECRET_TEST', '1JIJTPBNV3VTV0CCEE1UOIRDR0TP1SXWNRUERRDELHTMIRDQ');
+	define('REDIRECT_URI_TEST', 'http://dev-test-qbation.pantheon.io/sites/all/libraries/php-foursquare/FoursquareAPI.class.php');
 
 	function search_box_test(){
 		$form = drupal_get_form('search_box_test_form');
@@ -15,7 +16,14 @@
 		$result = json_decode($consult);
 		if($result->meta->code == 200){
 			return theme('result_search', array('items' => $result->response));
+		}else{
+			drupal_set_message(t('Don\'t result'), 'status', FALSE);
+			return theme('result_search', array('items' => $result->response));
 		}
+	}
+	function datail_item($id){
+		$ch = file_get_contents('https://foursquare.com/oauth2/authenticate?client_id='. CLIENT_ID_TEST . '&response_type=token&redirect_uri=' . REDIRECT_URI_TEST);
+		print_r($ch);
 	}
 	/**
 	 * Implementes hook_form

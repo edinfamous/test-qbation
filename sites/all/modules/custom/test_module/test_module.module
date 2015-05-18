@@ -18,6 +18,14 @@
 			'page arguments' => array(1,2,3),
 			'type' => MENU_CALLBACK,
 		);
+		$items['item-search/%'] = array(
+			'page callback' => 'datail_item',
+			'file' => 'test_module.pages.inc',
+			'file path' => drupal_get_path('module', 'test_module') . '/inc/',
+			'access callback' => TRUE,
+			'page arguments' => array(1),
+			'type' => MENU_CALLBACK,
+		);
 		return $items;
 	}
 	/**
